@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:medco/tools/constants.dart';
 
 class CustomTextField extends StatefulWidget {
   final String hintText;
@@ -26,28 +27,31 @@ class CustomTextField extends StatefulWidget {
 class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: MediaQuery.of(context).size.height * 0.07,
-      decoration: BoxDecoration(
-          color: widget.color,
-          border: Border.all(
+    return Padding(
+      padding:  EdgeInsets.symmetric(horizontal: 8),
+      child: Container(
+        height: MediaQuery.of(context).size.height * 0.07,
+        decoration: BoxDecoration(
             color: widget.color,
+            border: Border.all(
+              color: black,
+            ),
+            borderRadius: BorderRadius.all(Radius.circular(15))),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 10,
           ),
-          borderRadius: BorderRadius.all(Radius.circular(15))),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 10,
-        ),
-        child: TextFormField(
-          textInputAction: widget.inputAction,
-          controller: widget.controller,
-          cursorColor: widget.cursorColor,
-          decoration: InputDecoration(
-            // prefixIcon: widget.prefixicon,
-            border: InputBorder.none,
-            hintText: widget.hintText,
-            hintStyle: TextStyle(
-              color: widget.hintColor,
+          child: TextFormField(
+            textInputAction: widget.inputAction,
+            controller: widget.controller,
+            cursorColor: widget.cursorColor,
+            decoration: InputDecoration(
+              // prefixIcon: widget.prefixicon,
+              border: InputBorder.none,
+              hintText: widget.hintText,
+              hintStyle: TextStyle(
+                color: widget.hintColor,
+              ),
             ),
           ),
         ),

@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: white,
       body: Center(
         child: Image.asset(
-          "assets/images/Logo.png",
+          "assets/MEDCO.png",
           scale: 5,
           height: _height / 5,
         ),
