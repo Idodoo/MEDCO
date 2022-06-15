@@ -8,6 +8,8 @@ class CustomTextField extends StatefulWidget {
   final Color color;
   final Color hintColor;
   final Color cursorColor;
+  final validator;
+  final onSaved;
   final TextEditingController controller;
   final TextInputAction inputAction;
 
@@ -19,6 +21,8 @@ class CustomTextField extends StatefulWidget {
     required this.controller,
     required this.cursorColor,
     required this.inputAction,
+    required this.validator,
+    required this.onSaved,
   }) : super(key: key);
   @override
   _CustomTextFieldState createState() => _CustomTextFieldState();
@@ -28,7 +32,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.symmetric(horizontal: 8),
+      padding: EdgeInsets.symmetric(horizontal: 8),
       child: Container(
         height: MediaQuery.of(context).size.height * 0.07,
         decoration: BoxDecoration(
@@ -42,6 +46,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
             horizontal: 10,
           ),
           child: TextFormField(
+            validator: widget.validator,
+            onSaved: widget.onSaved,
             textInputAction: widget.inputAction,
             controller: widget.controller,
             cursorColor: widget.cursorColor,

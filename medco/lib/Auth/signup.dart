@@ -47,6 +47,19 @@ class _SignupState extends State<Signup> {
                 height: 2,
               ),
               CustomTextField(
+                validator: (value) {
+                  RegExp regex = new RegExp(r'^.{3,}$');
+                  if (value!.isEmpty) {
+                    return ("Name cannot be Empty");
+                  }
+                  if (!regex.hasMatch(value)) {
+                    return ("Enter Valid Name(Min. 3 Character");
+                  }
+                  return null;
+                },
+                onSaved: (value) {
+                  _nameController.text = value!;
+                },
                 hintText: 'Jane Doe',
                 color: white,
                 hintColor: label,
@@ -75,6 +88,20 @@ class _SignupState extends State<Signup> {
                 height: 2,
               ),
               CustomTextField(
+                onSaved: (value) {
+                  _emailController.text = value!;
+                },
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return ("Please Enter Your Email");
+                  }
+                  // reg for email validation
+                  if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+[a-z]")
+                      .hasMatch(value)) {
+                    return ("Please Enter a valid email");
+                  }
+                  return null;
+                },
                 hintText: 'xxxxx@gmail.com',
                 color: white,
                 hintColor: label,
@@ -103,6 +130,19 @@ class _SignupState extends State<Signup> {
                 height: 2,
               ),
               CustomTextField(
+                validator: (value) {
+                  RegExp regex = new RegExp(r'^.{3,}$');
+                  if (value!.isEmpty) {
+                    return ("GroupID cannot be Empty");
+                  }
+                  if (!regex.hasMatch(value)) {
+                    return ("Enter Valid ID(Min. 3 Character");
+                  }
+                  return null;
+                },
+                onSaved: (value) {
+                  _IdController.text = value!;
+                },
                 hintText: 'doctor',
                 color: white,
                 hintColor: label,
@@ -145,6 +185,19 @@ class _SignupState extends State<Signup> {
                       horizontal: 10,
                     ),
                     child: TextFormField(
+                      onSaved: (value) {
+                        _passwordController.text = value!;
+                      },
+                      validator: (value) {
+                        RegExp regex = new RegExp(r'^.{6,}$');
+                        if (value!.isEmpty) {
+                          return ("Password required");
+                        }
+                        if (!regex.hasMatch(value)) {
+                          return ("Enter Valid Password(Min. 6 Character");
+                        }
+                        return null;
+                      },
                       textInputAction: TextInputAction.next,
                       controller: _passwordController,
                       cursorColor: black,
@@ -208,6 +261,16 @@ class _SignupState extends State<Signup> {
                       horizontal: 10,
                     ),
                     child: TextFormField(
+                      onSaved: (value) {
+                        _repeatPasswordController.text = value!;
+                      },
+                      validator: (value) {
+                        if (_repeatPasswordController.text !=
+                            _passwordController.text) {
+                          return "Password don't match";
+                        }
+                        return null;
+                      },
                       textInputAction: TextInputAction.done,
                       controller: _repeatPasswordController,
                       cursorColor: black,
@@ -257,7 +320,7 @@ class _SignupState extends State<Signup> {
                     ),
                     // elevation: 3.0,
                     onPressed: () {
-                      // if (_formKey.currentState!.validate()) {}
+                      if (_formKey.currentState!.validate()) {}
                     },
                   ),
                 ),

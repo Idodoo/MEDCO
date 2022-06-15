@@ -39,6 +39,7 @@ dependencies:
   font_awesome_flutter:
   keyboard_avoider:
   line_icons:
+  fluttertoast:  
 
 dev_dependencies:
   flutter_native_splash:
