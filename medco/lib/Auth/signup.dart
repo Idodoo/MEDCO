@@ -4,8 +4,6 @@ import 'package:medco/tools/constants.dart';
 import 'package:medco/tools/textfield.dart';
 
 class Signup extends StatefulWidget {
-  Signup({Key? key}) : super(key: key);
-
   @override
   State<Signup> createState() => _SignupState();
 }

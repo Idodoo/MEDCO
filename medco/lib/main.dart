@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medco/Auth/login.dart';
 import 'package:medco/Auth/signup.dart';
 import 'package:medco/splashscreen.dart';
 import 'package:medco/tools/constants.dart';
@@ -20,6 +21,6 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           backgroundColor: white,
         ),
-        home: Signup(),
+        home: Login(),
       );
 }
