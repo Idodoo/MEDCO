@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:medco/Admin/Admin_Dashboard.dart';
 import 'package:medco/Auth/login.dart';
 import 'package:medco/Auth/signup.dart';
+import 'package:medco/Doctor/patient_list.dart';
 import 'package:medco/splashscreen.dart';
 import 'package:medco/tools/constants.dart';
 
@@ -21,6 +23,6 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           backgroundColor: white,
         ),
-        home: Login(),
+        home: Admin_Dashboard(),
       );
 }
